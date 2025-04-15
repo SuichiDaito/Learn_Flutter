@@ -23,10 +23,11 @@ class buttonComplete extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
+                shadowColor: Colors.transparent,
                 backgroundColor: Color(0xFF0088BF),
                 padding: const EdgeInsets.all(22),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderRadius: BorderRadius.all(Radius.circular(50)),
                 ),
               ),
               child: Text(
@@ -44,11 +45,12 @@ class buttonComplete extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
+                shadowColor: Colors.transparent,
                 backgroundColor: Colors.white,
                 padding: const EdgeInsets.all(22),
                 side: BorderSide(color: Color(0xFF0088BF), width: 1),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderRadius: BorderRadius.all(Radius.circular(50)),
                 ),
               ),
               child: Text(

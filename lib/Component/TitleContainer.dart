@@ -8,16 +8,20 @@ class Titlecontainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: 34,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: Color(0xFFFAEC8A),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(6),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 19, vertical: 5.0),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
       child: Text(
         title,
-        style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+        ),
       ),
     );
   }

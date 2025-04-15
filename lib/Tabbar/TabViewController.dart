@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:test1/API/http.dart';
+import 'package:test1/Component/Card.dart';
 import 'package:test1/Component/Listitle.dart';
 import 'package:test1/Component/TitleContainer.dart';
+import 'package:test1/Model/Comment.dart';
 import 'package:test1/View/OrderListScreen.dart';
 
 class TabViewController extends StatefulWidget {
@@ -12,42 +15,28 @@ class TabViewController extends StatefulWidget {
 
 class _tabViewController extends State<TabViewController> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    API.getComment();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Color(0xFFF5F5F5),
         appBar: AppBar(
           centerTitle: false,
           toolbarHeight: 90.0,
-          leading: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => OrderlistScreen(),
-                      ),
-                    );
-                  },
-                  icon: Icon(Icons.arrow_back, color: Colors.black),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "Order List",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 24,
-                        color: Color(0xFF313F46),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+          title: Text(
+            "Order List",
+            style: TextStyle(
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
+              fontSize: 24,
+              color: Color(0xFF313F46),
             ),
           ),
           bottom: TabBar(
@@ -64,99 +53,68 @@ class _tabViewController extends State<TabViewController> {
           backgroundColor: Colors.white,
         ),
 
-        body: TabBarView(
-          children: [
-            ListView(
-              children: [
-                Listitle(
-                  id: '#990455',
-                  state_korean: "Korean",
-                  state: "Active",
-                ),
-                Listitle(
-                  id: '#234763',
-                  state_korean: "Korean",
-                  state: "Active",
-                ),
-              ],
-            ),
-            ListView(
-              children: [
-                Listitle(
-                  id: '#990455',
-                  state_korean: "Korean",
-                  state: "Cancelled",
-                ),
-                Listitle(
-                  id: '#234763',
-                  state_korean: "Korean",
-                  state: "Active",
-                ),
-                Listitle(
-                  id: '#234763',
-                  state_korean: "Korean",
-                  state: "Active",
-                ),
-              ],
-            ),
-            ListView(
-              children: [
-                Listitle(
-                  id: '#990455',
-                  state_korean: "Korean",
-                  state: "Searching",
-                ),
-                Listitle(
-                  id: '#234763',
-                  state_korean: "Korean",
-                  state: "Active",
-                ),
-                Listitle(
-                  id: '#234763',
-                  state_korean: "Korean",
-                  state: "Completed",
-                ),
-              ],
-            ),
-            ListView(
-              children: [
-                Listitle(
-                  id: '#990455',
-                  state_korean: "Korean",
-                  state: "Searching",
-                ),
-                Listitle(
-                  id: '#234763',
-                  state_korean: "Korean",
-                  state: "Active",
-                ),
-                Listitle(
-                  id: '#234763',
-                  state_korean: "Korean",
-                  state: "Completed",
-                ),
-              ],
-            ),
-            ListView(
-              children: [
-                Listitle(
-                  id: '#990455',
-                  state_korean: "Korean",
-                  state: "Searching",
-                ),
-                Listitle(
-                  id: '#234763',
-                  state_korean: "Korean",
-                  state: "Cancelled",
-                ),
-                Listitle(
-                  id: '#234763',
-                  state_korean: "Korean",
-                  state: "Cancelled",
-                ),
-              ],
-            ),
-          ],
+        body: FutureBuilder(
+          future: API.getComment(),
+          builder: (BuildContext context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasData) {
+              var data = snapshot.data;
+              print(data);
+              return Text("Get information successful");
+            }
+            return Center(child: CircularProgressIndicator());
+          },
+          // child: TabBarView(
+          //   children: [
+          //     ListView.builder(
+          //     itemCount: ,
+          //     itemBuilder: (context, index) {
+
+          //     },)
+
+          //     ListView(
+          //       children: [
+          //         ListCard(
+          //           id: '#990455',
+          //           state_korean: "배차중",
+          //           state: "Cancelled",
+          //         ),
+          //         ListCard(id: '#234763', state_korean: "이사", state: "Active"),
+          //         ListCard(id: '#234763', state_korean: "이사", state: "Active"),
+          //       ],
+          //     ),
+          //     ListView(
+          //       children: [
+          //         ListCard(id: '#990455', state_korean: "이사", state: "Searching"),
+          //         ListCard(id: '#234763', state_korean: "이사", state: "Active"),
+          //         ListCard(id: '#234763', state_korean: "퀵", state: "Completed"),
+          //       ],
+          //     ),
+          //     ListView(
+          //       children: [
+          //         ListCard(id: '#990455', state_korean: "이사", state: "Searching"),
+          //         ListCard(id: '#234763', state_korean: "이사", state: "Active"),
+          //         ListCard(id: '#234763', state_korean: "퀵", state: "Completed"),
+          //       ],
+          //     ),
+          //     ListView(
+          //       children: [
+          //         ListCard(id: '#990455', state_korean: "이사", state: "Searching"),
+          //         ListCard(
+          //           id: '#234763',
+          //           state_korean: "Korean",
+          //           state: "Cancelled",
+          //         ),
+          //         ListCard(
+          //           id: '#234763',
+          //           state_korean: "Korean",
+          //           state: "Cancelled",
+          //         ),
+          //       ],
+          //     ),
+          //   ],
+          // ),
         ),
       ),
     );

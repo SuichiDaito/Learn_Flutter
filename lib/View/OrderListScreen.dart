@@ -22,13 +22,7 @@ class _OrderlistScreen extends State<OrderlistScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              
-            ],
-          )
+      body: Column(children: [ 
         ],
       ),
     );
