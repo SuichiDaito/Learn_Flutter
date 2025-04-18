@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test1/component/button/button_complete.dart';
 import 'package:test1/component/button/button_searching.dart';
+import 'package:test1/l10n/app_localizations.dart';
 import 'package:test1/library/check_state_color.dart';
 import 'package:test1/gen/assets.gen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,14 +31,17 @@ class _CardOrderState extends State<CardOrder> {
     } else if (state == "Active") {
       return ButtonSearching(nameButton: "Tip driver");
     } else if (state == "Completed") {
-      return ButtonComplete(buttonReorder: "Reorder", buttonReceipt: "Receipt");
-    } else {
-      return ButtonSearching(nameButton: "Driver info");
+      return ButtonComplete(
+        nameButtonReorder: "Reorder",
+        nameButtonReceipt: "Receipt",
+      );
     }
+    return ButtonSearching(nameButton: "Driver info");
   }
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context);
     return SizedBox(
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -143,7 +147,7 @@ class _CardOrderState extends State<CardOrder> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Date order",
+                                  localization.date_order,
                                   style: TextStyle(
                                     fontFamily: "Roboto",
                                     color: Color(0xFFAEAEAE),
@@ -169,7 +173,7 @@ class _CardOrderState extends State<CardOrder> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Vehicle",
+                                  localization.vehicle,
                                   style: TextStyle(
                                     fontFamily: "Roboto",
                                     color: Color(0xFFAEAEAE),
@@ -178,7 +182,7 @@ class _CardOrderState extends State<CardOrder> {
                                   ),
                                 ),
                                 Text(
-                                  "1 ton truck",
+                                  localization.type_vehicle,
                                   style: TextStyle(
                                     fontFamily: "Roboto",
                                     color: Color(0xFF313F46),
@@ -234,7 +238,7 @@ class _CardOrderState extends State<CardOrder> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
-                                    "Road A, Street B, Province C, City D",
+                                    localization.appointment_time_start,
                                     maxLines: 2,
                                     style: TextStyle(
                                       fontFamily: "Roboto",
@@ -245,7 +249,7 @@ class _CardOrderState extends State<CardOrder> {
                                   ),
                                   Spacer(),
                                   Text(
-                                    "Road A, Street B, Province C, City Df",
+                                    localization.appointment_time_end,
                                     maxLines: 2,
                                     style: TextStyle(
                                       fontFamily: "Roboto",

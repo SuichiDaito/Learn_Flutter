@@ -10,11 +10,17 @@
 class $AssetsImageGen {
   const $AssetsImageGen();
 
+  /// File path: assets/image/credit-card.svg
+  String get creditCard => 'assets/image/credit-card.svg';
+
   /// File path: assets/image/departureicon.svg
   String get departureicon => 'assets/image/departureicon.svg';
 
+  /// File path: assets/image/point.svg
+  String get point => 'assets/image/point.svg';
+
   /// List of all assets
-  List<String> get values => [departureicon];
+  List<String> get values => [creditCard, departureicon, point];
 }
 
 class Assets {

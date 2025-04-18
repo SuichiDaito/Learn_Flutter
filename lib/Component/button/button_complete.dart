@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:test1/l10n/app_localizations.dart';
 
 class ButtonComplete extends StatelessWidget {
   const ButtonComplete({
     super.key,
-    required this.buttonReorder,
-    required this.buttonReceipt,
+    required this.nameButtonReorder,
+    required this.nameButtonReceipt,
   });
 
-  final String buttonReorder;
-  final String buttonReceipt;
+  final String nameButtonReorder;
+  final String nameButtonReceipt;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class ButtonComplete extends StatelessWidget {
                 ),
               ),
               child: Text(
-                buttonReorder,
+                nameButtonReorder,
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
@@ -54,7 +55,7 @@ class ButtonComplete extends StatelessWidget {
                 ),
               ),
               child: Text(
-                buttonReceipt,
+                nameButtonReceipt,
                 style: TextStyle(
                   color: Color(0xFF0088BF),
                   fontWeight: FontWeight.w500,

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:test1/api/http.dart';
 import 'package:test1/component/card.dart';
 import 'package:test1/component/list_card.dart';
 import 'package:test1/component/title_container.dart';
+import 'package:test1/controller/call_chopper_api.dart';
+import 'package:test1/l10n/app_localizations.dart';
 import 'package:test1/model/comment_model.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TabViewController extends StatefulWidget {
   const TabViewController({super.key});
@@ -18,18 +20,18 @@ class _TabViewControllerState extends State<TabViewController> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    API.getComment();
   }
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context);
     return DefaultTabController(
       length: 5,
       child: Scaffold(
         backgroundColor: Color(0xFFF5F5F5),
         appBar: AppBar(
           centerTitle: false,
-          toolbarHeight: 90.0,
+          // toolbarHeight: 80.0,
           title: Text(
             "Order List",
             style: TextStyle(
@@ -43,28 +45,43 @@ class _TabViewControllerState extends State<TabViewController> {
             isScrollable: true,
             indicatorColor: Colors.transparent,
             tabs: [
-              Tab(child: TitleContainer(title: AppLocalizations.of(context)! )),
-              Tab(child: TitleContainer(title: "Searching")),
-              Tab(child: TitleContainer(title: "Active")),
-              Tab(child: TitleContainer(title: "Completed")),
-              Tab(child: TitleContainer(title: "Cancelled")),
+              Tab(child: TitleContainer(title: localization.title_all)),
+              Tab(child: TitleContainer(title: localization.title_searching)),
+              Tab(child: TitleContainer(title: localization.title_active)),
+              Tab(child: TitleContainer(title: localization.title_complete)),
+              Tab(child: TitleContainer(title: localization.title_cancelled)),
             ],
           ),
           backgroundColor: Colors.white,
         ),
 
         body: FutureBuilder(
-          future: API.getComment(),
+          future: CallChopperApi.commentService.getPosts(),
           builder: (BuildContext context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
+              print("ConnectState: ${snapshot.connectionState}");
               return Center(child: CircularProgressIndicator());
             } else if (snapshot.hasData) {
-              var data = snapshot.data;
+              var data = snapshot.data!.body;
+              print("Data return : ${data}");
               return Center(
-                child: Text(AppLocalizations.of(context)!.helloWorld),
+                child: ListView.builder(
+                  itemCount: data!.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Id: ${data[index].id}"),
+                        Text("Name: ${data[index].name}"),
+                        Text("Email: ${data[index].email}"),
+                        Text("Body: ${data[index].body}"),
+                      ],
+                    );
+                  },
+                ),
               );
             }
-            return Center(child: CircularProgressIndicator());
+            return Text("Error");
           },
           // child: TabBarView(
           //   children: [
@@ -76,6 +93,11 @@ class _TabViewControllerState extends State<TabViewController> {
 
           //     ListView(
           //       children: [
+          // ListCard(
+          //             id: '#990455',
+          //             stateKorean: "${data[index].id}",
+          //             state: localization.title_cancelled,
+          //           );
           //         ListCard(
           //           id: '#990455',
           //           state_korean: "배차중",

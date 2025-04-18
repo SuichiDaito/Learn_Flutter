@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Constant {
+class ConstantColor {
   /// background Searching and Cancelled
   static Color colorBackgroundSearching = Color(0xFFF5F5F5);
 

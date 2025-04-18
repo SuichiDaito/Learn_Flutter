@@ -66,8 +66,8 @@ abstract class AppLocalizations {
 
   final String localeName;
 
-  static AppLocalizations? of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations);
+  static AppLocalizations of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
   }
 
   static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
@@ -116,7 +116,7 @@ abstract class AppLocalizations {
   /// No description provided for @title_complete.
   ///
   /// In en, this message translates to:
-  /// **'Complete'**
+  /// **'Completed'**
   String get title_complete;
 
   /// No description provided for @title_cancelled.

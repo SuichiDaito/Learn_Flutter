@@ -4,7 +4,7 @@ import 'package:test1/model/comment_model.dart';
 
 class API {
   static Future<List<dynamic>> getComment() async {
-    final List<dynamic> list;
+    final List<Comment> list;
     final response = await http.get(
       Uri.parse("https://jsonplaceholder.typicode.com/posts/1/comments"),
     );

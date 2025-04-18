@@ -18,7 +18,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get title_active => 'Active';
 
   @override
-  String get title_complete => 'Complete';
+  String get title_complete => 'Completed';
 
   @override
   String get title_cancelled => 'Cancelled';

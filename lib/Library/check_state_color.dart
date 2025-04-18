@@ -5,37 +5,37 @@ class CheckColorState {
 
   Object checkColorBackground(String state) {
     if (state == "Searching") {
-      return Constant.colorBackgroundSearching;
+      return ConstantColor.colorBackgroundSearching;
     } else if (state == "Active") {
-      return Constant.colorBackgroundActive;
+      return ConstantColor.colorBackgroundActive;
     } else if (state == "Completed") {
-      return Constant.colorBackgroundComplete;
+      return ConstantColor.colorBackgroundComplete;
     } else {
-      return Constant.colorBackgroundSearching;
+      return ConstantColor.colorBackgroundSearching;
     }
   }
 
   Object checkColorText(String state) {
     if (state == "Searching") {
-      return Constant.colorTextSearching;
+      return ConstantColor.colorTextSearching;
     } else if (state == "Active") {
-      return Constant.colorTextActive;
+      return ConstantColor.colorTextActive;
     } else if (state == "Completed") {
-      return Constant.colorTextComplete;
+      return ConstantColor.colorTextComplete;
     } else {
-      return Constant.colorTextSearching;
+      return ConstantColor.colorTextSearching;
     }
   }
 
   Object checkColorTextStateKorean(String state) {
     if (state == "Searching") {
-      return Constant.colorTextKoreanSearching;
+      return ConstantColor.colorTextKoreanSearching;
     } else if (state == "Active") {
-      return Constant.colorTextKoreanActive;
+      return ConstantColor.colorTextKoreanActive;
     } else if (state == "Completed") {
-      return Constant.colorTextKoreanComplete;
+      return ConstantColor.colorTextKoreanComplete;
     } else {
-      return Constant.colorTextKoreanSearching;
+      return ConstantColor.colorTextKoreanSearching;
     }
   }
 }
