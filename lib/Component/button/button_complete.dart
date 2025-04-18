@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class buttonComplete extends StatelessWidget {
-  const buttonComplete({
+class ButtonComplete extends StatelessWidget {
+  const ButtonComplete({
     super.key,
-    required this.nameButton1,
-    required this.nameButton2,
+    required this.buttonReorder,
+    required this.buttonReceipt,
   });
 
-  final String nameButton1;
-  final String nameButton2;
+  final String buttonReorder;
+  final String buttonReceipt;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class buttonComplete extends StatelessWidget {
                 ),
               ),
               child: Text(
-                nameButton1,
+                buttonReorder,
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
@@ -54,7 +54,7 @@ class buttonComplete extends StatelessWidget {
                 ),
               ),
               child: Text(
-                nameButton2,
+                buttonReceipt,
                 style: TextStyle(
                   color: Color(0xFF0088BF),
                   fontWeight: FontWeight.w500,

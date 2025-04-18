@@ -1,6 +1,6 @@
-import 'package:test1/Library/Constant.dart';
+import 'package:test1/library/constant.dart';
 
-class checkColor {
+class CheckColorState {
   final String state = "";
 
   Object checkColorBackground(String state) {

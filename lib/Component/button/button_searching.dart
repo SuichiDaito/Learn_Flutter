@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class buttonSearching extends StatelessWidget {
-  const buttonSearching({super.key, required this.nameButton});
+class ButtonSearching extends StatelessWidget {
+  const ButtonSearching({super.key, required this.nameButton});
 
   final String nameButton;
 

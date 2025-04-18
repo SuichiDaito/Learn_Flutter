@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:test1/Model/Comment.dart';
+import 'package:test1/model/comment_model.dart';
 
 class API {
   static Future<List<dynamic>> getComment() async {

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:test1/API/http.dart';
-import 'package:test1/Component/Card.dart';
-import 'package:test1/Component/Listitle.dart';
-import 'package:test1/Component/TitleContainer.dart';
-import 'package:test1/Model/Comment.dart';
-import 'package:test1/View/OrderListScreen.dart';
+import 'package:test1/api/http.dart';
+import 'package:test1/component/card.dart';
+import 'package:test1/component/list_card.dart';
+import 'package:test1/component/title_container.dart';
+import 'package:test1/model/comment_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TabViewController extends StatefulWidget {
   const TabViewController({super.key});
 
   @override
-  State<TabViewController> createState() => _tabViewController();
+  State<TabViewController> createState() => _TabViewControllerState();
 }
 
-class _tabViewController extends State<TabViewController> {
+class _TabViewControllerState extends State<TabViewController> {
   @override
   void initState() {
     // TODO: implement initState
@@ -43,11 +43,11 @@ class _tabViewController extends State<TabViewController> {
             isScrollable: true,
             indicatorColor: Colors.transparent,
             tabs: [
-              Tab(child: Titlecontainer(title: "All")),
-              Tab(child: Titlecontainer(title: "Searching")),
-              Tab(child: Titlecontainer(title: "Active")),
-              Tab(child: Titlecontainer(title: "Completed")),
-              Tab(child: Titlecontainer(title: "Cancelled")),
+              Tab(child: TitleContainer(title: AppLocalizations.of(context)! )),
+              Tab(child: TitleContainer(title: "Searching")),
+              Tab(child: TitleContainer(title: "Active")),
+              Tab(child: TitleContainer(title: "Completed")),
+              Tab(child: TitleContainer(title: "Cancelled")),
             ],
           ),
           backgroundColor: Colors.white,
@@ -60,8 +60,9 @@ class _tabViewController extends State<TabViewController> {
               return Center(child: CircularProgressIndicator());
             } else if (snapshot.hasData) {
               var data = snapshot.data;
-              print(data);
-              return Text("Get information successful");
+              return Center(
+                child: Text(AppLocalizations.of(context)!.helloWorld),
+              );
             }
             return Center(child: CircularProgressIndicator());
           },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test1/Component/Button/ButtonComplete.dart';
-import 'package:test1/Component/Button/ButtonSearching.dart';
-import 'package:test1/Library/Color.dart';
+import 'package:test1/component/button/button_complete.dart';
+import 'package:test1/component/button/button_searching.dart';
+import 'package:test1/library/check_state_color.dart';
 import 'package:test1/gen/assets.gen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -10,29 +10,29 @@ class CardOrder extends StatefulWidget {
     super.key,
     required this.id,
     required this.state,
-    required this.state_korean,
+    required this.stateKorean,
   });
 
   final String id;
   final String state;
-  final String state_korean;
+  final String stateKorean;
 
   @override
-  State<CardOrder> createState() => _cardOrder();
+  State<CardOrder> createState() => _CardOrderState();
 }
 
-class _cardOrder extends State<CardOrder> {
-  checkColor check = checkColor();
+class _CardOrderState extends State<CardOrder> {
+  CheckColorState check = CheckColorState();
 
   Widget checkStateButton(String state) {
     if (state == "Searching") {
-      return buttonSearching(nameButton: "Driver info");
+      return ButtonSearching(nameButton: "Driver info");
     } else if (state == "Active") {
-      return buttonSearching(nameButton: "Tip driver");
+      return ButtonSearching(nameButton: "Tip driver");
     } else if (state == "Completed") {
-      return buttonComplete(nameButton1: "Reorder", nameButton2: "Receipt");
+      return ButtonComplete(buttonReorder: "Reorder", buttonReceipt: "Receipt");
     } else {
-      return buttonSearching(nameButton: "Driver info");
+      return ButtonSearching(nameButton: "Driver info");
     }
   }
 
@@ -74,7 +74,7 @@ class _cardOrder extends State<CardOrder> {
                         ),
                       ),
                       child: Text(
-                        widget.state_korean,
+                        widget.stateKorean,
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.normal,

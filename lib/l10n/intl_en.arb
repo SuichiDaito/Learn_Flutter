@@ -1,0 +1,21 @@
+{
+  "title_all": "All",
+  "title_searching": "Searching",
+  "title_active": "Active",
+  "title_complete": "Complete",
+  "title_cancelled": "Cancelled",
+  "state_korean_searching": "이사",
+  "state_korean_active": "이사",
+  "state_korean_completed": "퀵",
+  "state_korean_cancelled": "배차중",
+  "date_order": "Date_order",
+  "vehicle": "Vehicle",
+  "type_vehicle": "1 ton truck",
+  "appointment_time_start": "Road A, Street B, Province C, City D",
+  "appointment_time_end": "Road A, Street B, Province C, City D",
+  "button_state_searching": "Tip driver",
+  "button_state_active": "Driver info",
+  "button_state_complete_reorder": "Reorder",
+  "button_state_complete_receipt": "Receipt"
+  
+}

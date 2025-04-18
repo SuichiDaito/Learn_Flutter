@@ -1,0 +1,20 @@
+{
+  "title_all": "모두",
+  "title_searching": "수색",
+  "title_active": "활동적인",
+  "title_complete": "완전한",
+  "title_cancelled": "취소",
+  "state_korean_searching": "이사",
+  "state_korean_active": "이사",
+  "state_korean_completed": "퀵",
+  "state_korean_cancelled": "배차중",
+  "date_order": "날짜 순서",
+  "vehicle": "차량",
+  "type_vehicle": "1 톤 트럭",
+  "appointment_time_start": "도로 A, 거리 B, 주 C, 도시 D",
+  "appointment_time_end": "도로 A, 거리 B, 주 C, 도시 D",
+  "button_state_searching": "팁 드라이버",
+  "button_state_active": "강 정보",
+  "button_state_complete_reorder": "재정렬",
+  "button_state_complete_receipt": "영수증"
+}
