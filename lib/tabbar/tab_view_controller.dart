@@ -54,7 +54,6 @@ class _TabViewControllerState extends State<TabViewController> {
           ),
           backgroundColor: Colors.white,
         ),
-
         body: FutureBuilder(
           future: CallChopperApi.commentService.getPosts(),
           builder: (BuildContext context, snapshot) {
@@ -68,76 +67,13 @@ class _TabViewControllerState extends State<TabViewController> {
                 child: ListView.builder(
                   itemCount: data!.length,
                   itemBuilder: (context, index) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Id: ${data[index].id}"),
-                        Text("Name: ${data[index].name}"),
-                        Text("Email: ${data[index].email}"),
-                        Text("Body: ${data[index].body}"),
-                      ],
-                    );
+                    return Text("dagd");
                   },
                 ),
               );
             }
             return Text("Error");
           },
-          // child: TabBarView(
-          //   children: [
-          //     ListView.builder(
-          //     itemCount: ,
-          //     itemBuilder: (context, index) {
-
-          //     },)
-
-          //     ListView(
-          //       children: [
-          // ListCard(
-          //             id: '#990455',
-          //             stateKorean: "${data[index].id}",
-          //             state: localization.title_cancelled,
-          //           );
-          //         ListCard(
-          //           id: '#990455',
-          //           state_korean: "배차중",
-          //           state: "Cancelled",
-          //         ),
-          //         ListCard(id: '#234763', state_korean: "이사", state: "Active"),
-          //         ListCard(id: '#234763', state_korean: "이사", state: "Active"),
-          //       ],
-          //     ),
-          //     ListView(
-          //       children: [
-          //         ListCard(id: '#990455', state_korean: "이사", state: "Searching"),
-          //         ListCard(id: '#234763', state_korean: "이사", state: "Active"),
-          //         ListCard(id: '#234763', state_korean: "퀵", state: "Completed"),
-          //       ],
-          //     ),
-          //     ListView(
-          //       children: [
-          //         ListCard(id: '#990455', state_korean: "이사", state: "Searching"),
-          //         ListCard(id: '#234763', state_korean: "이사", state: "Active"),
-          //         ListCard(id: '#234763', state_korean: "퀵", state: "Completed"),
-          //       ],
-          //     ),
-          //     ListView(
-          //       children: [
-          //         ListCard(id: '#990455', state_korean: "이사", state: "Searching"),
-          //         ListCard(
-          //           id: '#234763',
-          //           state_korean: "Korean",
-          //           state: "Cancelled",
-          //         ),
-          //         ListCard(
-          //           id: '#234763',
-          //           state_korean: "Korean",
-          //           state: "Cancelled",
-          //         ),
-          //       ],
-          //     ),
-          //   ],
-          // ),
         ),
       ),
     );

@@ -8,7 +8,7 @@
   "state_korean_active": "이사",
   "state_korean_completed": "퀵",
   "state_korean_cancelled": "배차중",
-  "date_order": "Date_order",
+  "date_order": "Date order",
   "vehicle": "Vehicle",
   "type_vehicle": "1 ton truck",
   "appointment_time_start": "Road A, Street B, Province C, City D",

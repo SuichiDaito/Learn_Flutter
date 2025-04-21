@@ -152,7 +152,7 @@ abstract class AppLocalizations {
   /// No description provided for @date_order.
   ///
   /// In en, this message translates to:
-  /// **'Date_order'**
+  /// **'Date order'**
   String get date_order;
 
   /// No description provided for @vehicle.

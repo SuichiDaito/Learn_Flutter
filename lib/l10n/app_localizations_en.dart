@@ -36,7 +36,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get state_korean_cancelled => '배차중';
 
   @override
-  String get date_order => 'Date_order';
+  String get date_order => 'Date order';
 
   @override
   String get vehicle => 'Vehicle';

@@ -110,7 +110,7 @@ class _CardOrderState extends State<CardOrder> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Column(
                   children: [
                     Row(
@@ -197,45 +197,45 @@ class _CardOrderState extends State<CardOrder> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 18.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/image/departureicon.svg',
-                                  width: 24,
-                                  height: 24,
-                                ),
-                                Container(
-                                  height: 20,
-                                  child: VerticalDivider(
-                                    color: Color(0xFFDEDEDE),
-                                    thickness: 1,
-                                    width: 12,
-                                  ),
-                                ),
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: SizedBox(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: SizedBox(
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    SvgPicture.asset(
+                                      'assets/image/departureicon.svg',
+                                      width: 24,
+                                      height: 24,
+                                    ),
+                                    SizedBox(
+                                      height: 22,
+                                      child: VerticalDivider(
+                                        color: Color(0xFFDEDEDE),
+                                        thickness: 1,
+                                        width: 12,
+                                      ),
+                                    ),
 
-                                SvgPicture.asset(
-                                  'assets/image/point.svg',
-                                  width: 25,
-                                  height: 25,
-                                  color: Color(0xFFEA5265),
+                                    SvgPicture.asset(
+                                      'assets/image/point.svg',
+                                      width: 25,
+                                      height: 25,
+                                      color: Color(0xFFEA5265),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            flex: 8,
-                            child: SizedBox(
-                              height: 70,
+                            Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                // mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
                                     localization.appointment_time_start,
@@ -247,7 +247,7 @@ class _CardOrderState extends State<CardOrder> {
                                       fontWeight: FontWeight.w400,
                                     ),
                                   ),
-                                  Spacer(),
+                                  const SizedBox(height: 18),
                                   Text(
                                     localization.appointment_time_end,
                                     maxLines: 2,
@@ -261,12 +261,12 @@ class _CardOrderState extends State<CardOrder> {
                                 ],
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      padding: const EdgeInsets.symmetric(vertical: 22.0),
                       child: checkStateButton(widget.state),
                     ),
                   ],

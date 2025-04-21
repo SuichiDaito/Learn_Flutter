@@ -41,6 +41,7 @@ dependencies:
   intl: any
   chopper: ^8.1.0
   json_annotation: ^4.9.0
+  flutter_bloc: ^9.1.0
 
 
 dev_dependencies:
