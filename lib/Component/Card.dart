@@ -15,16 +15,34 @@ class CardOrder extends StatefulWidget {
     super.key,
     required this.id,
     required this.state,
+    required this.departure,
+    required this.destination,
   });
 
   final String id;
   final String state;
+  final String departure;
+  final String destination;
 
   @override
   State<CardOrder> createState() => _CardOrderState();
 }
 
 class _CardOrderState extends State<CardOrder> {
+  late String id;
+  late String state;
+  late String departure;
+  late String destination;
+
+  @override
+  void initState() {
+    super.initState();
+    id = widget.id;
+    state = widget.state;
+    departure = widget.departure;
+    destination = widget.destination;
+  }
+
   CheckState check = CheckState();
 
   Widget checkStateButton(String state) {
@@ -45,7 +63,7 @@ class _CardOrderState extends State<CardOrder> {
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context);
     return SizedBox(
-      height: 315,
+      height: 320,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         elevation: 0,
@@ -58,7 +76,7 @@ class _CardOrderState extends State<CardOrder> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    widget.id,
+                    id,
                     style: TextStyle(
                       decoration: TextDecoration.none,
                       color: ConstantColor.colorTextLabelOrderList,
@@ -77,7 +95,7 @@ class _CardOrderState extends State<CardOrder> {
                     ),
                   ),
                   TitleContainer(
-                    title: widget.state,
+                    title: state,
                     color: check.checkColorBackground(widget.state) as Color,
                     colorText: check.checkColorText(widget.state) as Color,
                   ),
@@ -171,10 +189,7 @@ class _CardOrderState extends State<CardOrder> {
                       ),
                     ),
                     const SizedBox(height: 12),
-                    Address(
-                      departure: localization.appointment_time_start,
-                      destination: localization.appointment_time_end,
-                    ),
+                    Address(departure: departure, destination: destination),
                     const SizedBox(height: 14),
                     checkStateButton(widget.state),
                   ],

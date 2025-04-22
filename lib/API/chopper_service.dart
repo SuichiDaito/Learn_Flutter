@@ -3,7 +3,7 @@ import 'package:test1/model/comment_model.dart';
 
 part 'chopper_service.chopper.dart';
 
-@ChopperApi(baseUrl: '/posts/1/comments')
+@ChopperApi(baseUrl: '/comments')
 abstract class JsonService extends ChopperService {
   @GET()
   Future<Response<List<Comment>>> getPosts();

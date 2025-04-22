@@ -11,12 +11,14 @@ class ListCard extends StatefulWidget {
     super.key,
     required this.id,
     required this.state,
-    required this.stateKorean,
+    required this.departure,
+    required this.destination,
   });
 
   final String id;
   final String state;
-  final String stateKorean;
+  final String departure;
+  final String destination;
 
   @override
   State<ListCard> createState() => _ListCardState();
@@ -25,20 +27,16 @@ class ListCard extends StatefulWidget {
 class _ListCardState extends State<ListCard> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 5,
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 4.0),
-          child:
-              CheckStateCardOrder.checkStateCardOrder(
-                    widget.state,
-                    widget.id,
-                    widget.stateKorean,
-                  )
-                  as Widget,
-        );
-      },
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child:
+          CheckStateCardOrder.checkStateCardOrder(
+                widget.state,
+                widget.id,
+                widget.departure,
+                widget.destination,
+              )
+              as Widget,
     );
   }
 }

@@ -20,7 +20,7 @@ final class _$JsonService extends JsonService {
 
   @override
   Future<Response<List<Comment>>> getPosts() {
-    final Uri $url = Uri.parse('/posts/1/comments');
+    final Uri $url = Uri.parse('/comments');
     final Request $request = Request('GET', $url, client.baseUrl);
     return client.send<List<Comment>, Comment>($request);
   }

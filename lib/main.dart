@@ -56,7 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return BlocProvider<ImplementBloc>(
       create: (_) => ImplementBloc()..add(FeatchData()),
       child: Scaffold(
-        appBar: AppBar(title: Text("Fetch data when use bloc ")),
+        appBar: AppBar(
+          title: Text("Fetch data when use bloc "),
+          bottom: TabBar(tabs: [Tab(text: "Demooo")]),
+        ),
+
         body: BlocBuilder<ImplementBloc, Data>(
           builder: (context, state) {
             if (state is LoadingData) {
@@ -71,7 +75,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: ListView.builder(
                   itemCount: data!.length,
                   itemBuilder: (context, index) {
-                    return ListTile(title: Text("Name: ${data[index].name}"));
+                    return ListTile(
+                      title: Text("Id: ${data[index].id}"),
+                      subtitle: Text("Name: ${data[index].name}"),
+                    );
                   },
                 ),
               );

@@ -15,12 +15,10 @@ class CardOrderCancelled extends StatefulWidget {
     super.key,
     required this.id,
     required this.state,
-    required this.stateKorean,
   });
 
   final String id;
   final String state;
-  final String stateKorean;
 
   @override
   State<CardOrderCancelled> createState() => _CardOrderCancelledState();
