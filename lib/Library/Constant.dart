@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ConstantColor {
   /// background Searching and Cancelled
-  static Color colorBackgroundSearching = Color(0xFFF5F5F5);
+  static Color colorNeutral4 = Color(0xFFF5F5F5);
 
   /// background Searching
   static Color colorBackgroundActive = Color(0xFFC6EDD8);
@@ -32,5 +32,29 @@ class ConstantColor {
   static Color colorTextKoreanActive = Color(0xFFDB1F21);
 
   /// color Background OrderList Screen
-  static Color colorBackgroundOrderListScreen = Color(0xFF313F46);
+  static Color colorNeutral1 = Color(0xFF313F46);
+
+  /// color Background title container
+  static Color colorBackgroundSecondary = Color(0xFFFAEC8A);
+
+  /// color Text Label ID Order
+  static Color colorTextLabelOrderList = Color(0xFF313F46);
+
+  /// color Icon Payment Method
+  static Color colorIconPaymentMethod = Color(0xFFAEAEAE);
+
+  /// color line in Address
+  static Color colorLineContainer = Color(0xFFDEDEDE);
+
+  /// color icon destination
+  static Color colorIconDestination = Color(0xFFEA5265);
+
+  /// color text state Korean
+  static Color colorTextPrimary = Color(0xFFEEFAFF);
+
+  /// color background button completed
+  static Color colorBackgroundTextButtonCompleted = Color(0xFF0088BF);
+
+  /// color background state Korean
+  static Color colorBackgroundStateKorean = Color(0xFF79CB65);
 }

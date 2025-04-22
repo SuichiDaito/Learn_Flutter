@@ -29,46 +29,108 @@ class _TabViewControllerState extends State<TabViewController> {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        backgroundColor: ConstantColor.colorBackgroundSearching,
+        backgroundColor: ConstantColor.colorNeutral4,
         appBar: AppBar(
+          elevation: 0,
           surfaceTintColor: Colors.transparent,
           shadowColor: Colors.transparent,
-          backgroundColor: ConstantColor.colorBackgroundSearching,
-          centerTitle: false,
-          title: Text(
-            "Order List",
-            style: TextStyle(
-              fontFamily: "Roboto",
-              fontWeight: FontWeight.w500,
-              fontSize: 24,
-              color: ConstantColor.colorBackgroundOrderListScreen,
-            ),
-          ),
+          backgroundColor: Colors.white,
+          // centerTitle: false,
+          // title: Text(
+          //   "Order List",
+          //   style: TextStyle(
+          //     fontFamily: "Roboto",
+          //     fontWeight: FontWeight.w500,
+          //     fontSize: 24,
+          //     color: ConstantColor.colorNeutral1,
+          //   ),
+          // ),
           bottom: TabBar(
-            indicator: BoxDecoration(), // xóa underline
+            indicator: BoxDecoration(),
             labelColor: Colors.black,
-            unselectedLabelColor: Colors.grey,
             isScrollable: true,
-            unselectedLabelStyle: TextStyle(color: ConstantColor.colorBackgroundSearching),
-            overlayColor: ConstantColor.
             indicatorColor: Colors.black,
             tabs: [
-              Tab(child: TitleContainer(title: localization.title_all)),
-              Tab(child: TitleContainer(title: localization.title_searching)),
-              Tab(child: TitleContainer(title: localization.title_active)),
-              Tab(child: TitleContainer(title: localization.title_complete)),
-              Tab(child: TitleContainer(title: localization.title_cancelled)),
+              Tab(
+                child: TitleContainer(
+                  title: localization.title_all,
+                  color: ConstantColor.colorBackgroundSecondary,
+                  colorText: ConstantColor.colorNeutral1,
+                ),
+              ),
+              Tab(
+                child: TitleContainer(
+                  title: localization.title_searching,
+                  color: ConstantColor.colorNeutral4,
+                  colorText: ConstantColor.colorNeutral1,
+                ),
+              ),
+              Tab(
+                child: TitleContainer(
+                  title: localization.title_active,
+                  color: ConstantColor.colorNeutral4,
+                  colorText: ConstantColor.colorNeutral1,
+                ),
+              ),
+              Tab(
+                child: TitleContainer(
+                  title: localization.title_complete,
+                  color: ConstantColor.colorNeutral4,
+                  colorText: ConstantColor.colorNeutral1,
+                ),
+              ),
+              Tab(
+                child: TitleContainer(
+                  title: localization.title_cancelled,
+                  color: ConstantColor.colorNeutral4,
+                  colorText: ConstantColor.colorNeutral1,
+                ),
+              ),
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            ListCard(id: "#4455", state: "Searching", stateKorean: "432bbd"),
-            ListCard(id: "#4455", state: "Active", stateKorean: "432bbd"),
-            ListCard(id: "#4455", state: "Completed", stateKorean: "432bbd"),
-            ListCard(id: "#4455", state: "Cancelled", stateKorean: "432bbd"),
-            ListCard(id: "#4455", state: "Searching", stateKorean: "432bbd"),
-          ],
+        body: Builder(
+          builder: (context) {
+            return MediaQuery.removePadding(
+              context: context,
+              removeTop: true,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 5,
+                  horizontal: 10.0,
+                ),
+                child: TabBarView(
+                  children: [
+                    ListCard(
+                      id: "#4455",
+                      state: "Searching",
+                      stateKorean: "432bbd",
+                    ),
+                    ListCard(
+                      id: "#4455",
+                      state: "Active",
+                      stateKorean: "432bbd",
+                    ),
+                    ListCard(
+                      id: "#4455",
+                      state: "Completed",
+                      stateKorean: "432bbd",
+                    ),
+                    ListCard(
+                      id: "#4455",
+                      state: "Cancelled",
+                      stateKorean: "432bbd",
+                    ),
+                    ListCard(
+                      id: "#4455",
+                      state: "Searching",
+                      stateKorean: "432bbd",
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:test1/Library/Constant.dart';
 
 class TitleContainer extends StatelessWidget {
-  const TitleContainer({super.key, required this.title});
+  const TitleContainer({
+    super.key,
+    required this.title,
+    required this.color,
+    required this.colorText,
+  });
 
   final String title;
+  final Color color;
+  final Color colorText;
 
   @override
   Widget build(BuildContext context) {
@@ -11,15 +19,15 @@ class TitleContainer extends StatelessWidget {
       height: 34,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: Color(0xFFFAEC8A),
+        color: color,
         borderRadius: BorderRadius.circular(6),
       ),
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
       child: Text(
         title,
         style: TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.w500,
+          color: colorText,
+          fontWeight: FontWeight.w600,
           fontSize: 14,
         ),
       ),

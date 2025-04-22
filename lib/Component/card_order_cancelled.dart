@@ -10,42 +10,30 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test1/library/constant.dart';
 import 'package:test1/library/constant_format_currency.dart';
 
-class CardOrder extends StatefulWidget {
-  const CardOrder({
+class CardOrderCancelled extends StatefulWidget {
+  const CardOrderCancelled({
     super.key,
     required this.id,
     required this.state,
+    required this.stateKorean,
   });
 
   final String id;
   final String state;
+  final String stateKorean;
 
   @override
-  State<CardOrder> createState() => _CardOrderState();
+  State<CardOrderCancelled> createState() => _CardOrderCancelledState();
 }
 
-class _CardOrderState extends State<CardOrder> {
+class _CardOrderCancelledState extends State<CardOrderCancelled> {
   CheckState check = CheckState();
-
-  Widget checkStateButton(String state) {
-    if (state == "Searching") {
-      return ButtonSearching(nameButton: "Tip driver");
-    } else if (state == "Active") {
-      return ButtonSearching(nameButton: "Driver Info");
-    } else if (state == "Completed") {
-      return ButtonComplete(
-        nameButtonReorder: "Reorder",
-        nameButtonReceipt: "Receipt",
-      );
-    }
-    return ButtonSearching(nameButton: "Driver info");
-  }
 
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context);
     return SizedBox(
-      height: 315,
+      height: 250,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         elevation: 0,
@@ -61,15 +49,15 @@ class _CardOrderState extends State<CardOrder> {
                     widget.id,
                     style: TextStyle(
                       decoration: TextDecoration.none,
-                      color: ConstantColor.colorTextLabelOrderList,
+                      color: ConstantColor.colorNeutral1,
                       fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 14, right: 14),
                     child: TitleContainer(
-                      title: check.checkTextStateKorean(widget.state),
+                      title: localization.state_korean_cancelled,
                       color:
                           check.checkColorTextStateKorean(widget.state)
                               as Color,
@@ -87,29 +75,6 @@ class _CardOrderState extends State<CardOrder> {
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        SvgPicture.asset(
-                          'assets/image/credit-card.svg',
-                          width: 20,
-                          height: 20,
-                          color: ConstantColor.colorIconPaymentMethod,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Text(
-                            ConstantFormat.formatCurrency(34000),
-                            style: TextStyle(
-                              fontFamily: "Roboto",
-                              decoration: TextDecoration.none,
-                              color: Color(0xFF313F46),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10.0),
                       child: Row(
@@ -176,7 +141,6 @@ class _CardOrderState extends State<CardOrder> {
                       destination: localization.appointment_time_end,
                     ),
                     const SizedBox(height: 14),
-                    checkStateButton(widget.state),
                   ],
                 ),
               ),
