@@ -30,4 +30,7 @@ class ConstantColor {
 
   /// text Active Korean
   static Color colorTextKoreanActive = Color(0xFFDB1F21);
+
+  /// color Background OrderList Screen
+  static Color colorBackgroundOrderListScreen = Color(0xFF313F46);
 }

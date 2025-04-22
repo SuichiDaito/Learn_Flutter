@@ -6,6 +6,7 @@ import 'package:test1/component/list_card.dart';
 import 'package:test1/component/title_container.dart';
 import 'package:test1/controller/call_chopper_api.dart';
 import 'package:test1/l10n/app_localizations.dart';
+import 'package:test1/library/constant.dart';
 import 'package:test1/model/comment_model.dart';
 
 class TabViewController extends StatefulWidget {
@@ -28,22 +29,29 @@ class _TabViewControllerState extends State<TabViewController> {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        backgroundColor: Color(0xFFF5F5F5),
+        backgroundColor: ConstantColor.colorBackgroundSearching,
         appBar: AppBar(
+          surfaceTintColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          backgroundColor: ConstantColor.colorBackgroundSearching,
           centerTitle: false,
-          // toolbarHeight: 80.0,
           title: Text(
             "Order List",
             style: TextStyle(
               fontFamily: "Roboto",
               fontWeight: FontWeight.w500,
               fontSize: 24,
-              color: Color(0xFF313F46),
+              color: ConstantColor.colorBackgroundOrderListScreen,
             ),
           ),
           bottom: TabBar(
+            indicator: BoxDecoration(), // xóa underline
+            labelColor: Colors.black,
+            unselectedLabelColor: Colors.grey,
             isScrollable: true,
-            indicatorColor: Colors.transparent,
+            unselectedLabelStyle: TextStyle(color: ConstantColor.colorBackgroundSearching),
+            overlayColor: ConstantColor.
+            indicatorColor: Colors.black,
             tabs: [
               Tab(child: TitleContainer(title: localization.title_all)),
               Tab(child: TitleContainer(title: localization.title_searching)),
@@ -52,28 +60,15 @@ class _TabViewControllerState extends State<TabViewController> {
               Tab(child: TitleContainer(title: localization.title_cancelled)),
             ],
           ),
-          backgroundColor: Colors.white,
         ),
-        body: FutureBuilder(
-          future: CallChopperApi.commentService.getPosts(),
-          builder: (BuildContext context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              print("ConnectState: ${snapshot.connectionState}");
-              return Center(child: CircularProgressIndicator());
-            } else if (snapshot.hasData) {
-              var data = snapshot.data!.body;
-              print("Data return : ${data}");
-              return Center(
-                child: ListView.builder(
-                  itemCount: data!.length,
-                  itemBuilder: (context, index) {
-                    return Text("dagd");
-                  },
-                ),
-              );
-            }
-            return Text("Error");
-          },
+        body: TabBarView(
+          children: [
+            ListCard(id: "#4455", state: "Searching", stateKorean: "432bbd"),
+            ListCard(id: "#4455", state: "Active", stateKorean: "432bbd"),
+            ListCard(id: "#4455", state: "Completed", stateKorean: "432bbd"),
+            ListCard(id: "#4455", state: "Cancelled", stateKorean: "432bbd"),
+            ListCard(id: "#4455", state: "Searching", stateKorean: "432bbd"),
+          ],
         ),
       ),
     );

@@ -14,6 +14,7 @@ class ImplementBloc extends Bloc<BlocEvent, Data> {
   Future<void> _onFetchData(FeatchData event, Emitter<Data> emit) async {
     try {
       emit(LoadingData());
+      // comments: Response<List<Comment>>
       final comments = await CallChopperApi.commentService.getPosts();
       emit(LoadedData(comments));
     } catch (e) {
@@ -23,20 +24,11 @@ class ImplementBloc extends Bloc<BlocEvent, Data> {
 
   Future<void> _refreshData(RefreshData event, Emitter<Data> emit) async {
     try {
+      // comments: Response<List<Comment>>
       final comments = await CallChopperApi.commentService.getPosts();
       emit(LoadedData(comments));
     } catch (e) {
       emit(ErrorData(e.toString()));
     }
   }
-
-  Future<List<Comment>> fetchDataFromAPI() async {
-    final list = await CallChopperApi.commentService.getPosts();
-    final List<Comment> comments = await list.data!;
-    return comments;
-  }
-}
-
-extension on Response<List<Comment>> {
-  get data => null;
 }

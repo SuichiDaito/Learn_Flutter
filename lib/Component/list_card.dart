@@ -25,10 +25,15 @@ class _ListCardState extends State<ListCard> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-      child: CardOrder(
-        id: widget.id,
-        stateKorean: widget.stateKorean,
-        state: widget.state,
+      child: ListView.builder(
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return CardOrder(
+            id: widget.id,
+            stateKorean: widget.stateKorean,
+            state: widget.state,
+          );
+        },
       ),
     );
   }

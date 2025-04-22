@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Scaffold(body: MyHomePage(title: "Demo Bloc")),
+      home: TabViewController(),
     );
   }
 }
@@ -59,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
             if (state is LoadingData) {
               return Center(child: CircularProgressIndicator());
             } else if (state is LoadedData) {
+              // map from Response<List<Comment>> to List<Comment>.
               final data = state.comments.body;
               return RefreshIndicator(
                 onRefresh: () async {
