@@ -3,6 +3,8 @@ import 'package:chopper/chopper.dart';
 import 'package:test1/model/comment_model.dart';
 import 'dart:convert';
 
+import 'package:test1/model/info_login.dart';
+
 class ModelConverter implements Converter {
   @override
   Request convertRequest(Request request) {
@@ -10,6 +12,7 @@ class ModelConverter implements Converter {
       request,
       contentTypeKey,
       jsonHeaders,
+
       override: false,
     );
     return encodeJson(req);
@@ -44,8 +47,35 @@ class ModelConverter implements Converter {
     return body;
   }
 
+  Response<BodyType> decodeJsonGogox<BodyType, InnerType>(Response response) {
+    var contentType = response.headers[contentTypeKey];
+    var body = response.body;
+    print("Body decodeJson: $body");
+    if (contentType != null && contentType.contains(jsonHeaders)) {
+      body = utf8.decode(response.bodyBytes);
+    }
+    try {
+      var mapData = json.decode(body);
+      if (mapData != null) {
+        InfoLogin info = mapData.map((info) => InfoLogin.fromJson(info));
+        return response.copyWith<BodyType>(body: info as BodyType);
+      }
+    } catch (e) {
+      chopperLogger.warning(e);
+      return response.copyWith<BodyType>(body: body);
+    }
+    return body;
+  }
+
   @override
   Response<BodyType> convertResponse<BodyType, InnerType>(Response response) {
     return decodeJson<BodyType, InnerType>(response);
+  }
+
+  @override
+  Response<BodyType> convertResponseGogox<BodyType, InnerType>(
+    Response response,
+  ) {
+    return decodeJsonGogox<BodyType, InnerType>(response);
   }
 }

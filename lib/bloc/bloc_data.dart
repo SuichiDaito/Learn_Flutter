@@ -14,3 +14,8 @@ class ErrorData extends Data {
   final String message;
   ErrorData(this.message);
 }
+
+class LoadedDataGogox extends Data {
+  final Response info;
+  LoadedDataGogox(this.info);
+}

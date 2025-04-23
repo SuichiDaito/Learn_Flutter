@@ -36,12 +36,13 @@ class Detail extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(
-          height: 150,
+          height: 160,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(4),
           ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(
