@@ -19,6 +19,6 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 ## Resource Notion 
- - Localization: (https://www.notion.so/Localization-1d87b5655aeb8075bad8e725e5b88984?pvs=4)
- - Chopper: (https://www.notion.so/CHOPPER-1d67b5655aeb801a8c8fc2663174bcff?pvs=4)
+ - Localization: https://www.notion.so/Localization-1d87b5655aeb8075bad8e725e5b88984?pvs=4
+ - Chopper: https://www.notion.so/CHOPPER-1d67b5655aeb801a8c8fc2663174bcff?pvs=4
 
