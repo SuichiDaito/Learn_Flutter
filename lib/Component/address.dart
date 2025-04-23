@@ -15,14 +15,13 @@ class Address extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 80,
+    return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 35,
             child: Row(
               children: [
                 SvgPicture.asset(
@@ -48,39 +47,37 @@ class Address extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
             child: Container(
               width: 2,
               height: 15,
               color: ConstantColor.colorLineContainer,
             ),
           ),
-          SizedBox(
-            height: 35,
-            child: Row(
-              children: [
-                SvgPicture.asset(
-                  'assets/image/point.svg',
-                  width: 25,
-                  height: 25,
-                  color: ConstantColor.colorIconDestination,
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    destination,
-                    softWrap: true,
-                    maxLines: 2,
-                    style: TextStyle(
-                      fontFamily: "Roboto",
-                      color: ConstantColor.colorNeutral1,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
+          Row(
+            children: [
+              SvgPicture.asset(
+                'assets/image/point.svg',
+                width: 25,
+                height: 25,
+                color: ConstantColor.colorIconDestination,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  destination,
+                  softWrap: true,
+                  overflow: TextOverflow.visible,
+                  maxLines: 2,
+                  style: TextStyle(
+                    fontFamily: "Roboto",
+                    color: ConstantColor.colorNeutral1,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),

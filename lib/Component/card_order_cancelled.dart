@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test1/component/address.dart';
-import 'package:test1/component/button/button_complete.dart';
-import 'package:test1/component/button/button_searching.dart';
+import 'package:test1/component/button_complete.dart';
+import 'package:test1/component/button_searching.dart';
 import 'package:test1/component/title_container.dart';
 import 'package:test1/l10n/app_localizations.dart';
 import 'package:test1/library/check_state.dart';
@@ -15,10 +15,14 @@ class CardOrderCancelled extends StatefulWidget {
     super.key,
     required this.id,
     required this.state,
+    required this.departure,
+    required this.destination,
   });
 
   final String id;
   final String state;
+  final String departure;
+  final String destination;
 
   @override
   State<CardOrderCancelled> createState() => _CardOrderCancelledState();
@@ -31,7 +35,6 @@ class _CardOrderCancelledState extends State<CardOrderCancelled> {
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context);
     return SizedBox(
-      height: 250,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         elevation: 0,
@@ -39,6 +42,7 @@ class _CardOrderCancelledState extends State<CardOrderCancelled> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -135,8 +139,8 @@ class _CardOrderCancelledState extends State<CardOrderCancelled> {
                     ),
                     const SizedBox(height: 12),
                     Address(
-                      departure: localization.appointment_time_start,
-                      destination: localization.appointment_time_end,
+                      departure: widget.departure,
+                      destination: widget.destination,
                     ),
                     const SizedBox(height: 14),
                   ],

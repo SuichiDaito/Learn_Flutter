@@ -20,16 +20,32 @@ class TabViewController extends StatefulWidget {
   State<TabViewController> createState() => _TabViewControllerState();
 }
 
-class _TabViewControllerState extends State<TabViewController> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
+class _TabViewControllerState extends State<TabViewController>
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context);
+
+    final List<String> listTitle = [
+      localization.title_all,
+      localization.title_searching,
+      localization.title_active,
+      localization.title_complete,
+      localization.title_cancelled,
+    ];
+    Color color = ConstantColor.colorNeutral4;
+
+    @override
+    void initState() {
+      // TODO: implement initState
+      super.initState();
+    }
+
+    @override
+    void dispose() {
+      super.dispose();
+    }
+
     return BlocProvider<ImplementBloc>(
       create: (_) => ImplementBloc()..add(FeatchData()),
       child: DefaultTabController(
@@ -52,45 +68,38 @@ class _TabViewControllerState extends State<TabViewController> {
               ),
             ),
             bottom: TabBar(
+              tabAlignment: TabAlignment.center,
               indicator: BoxDecoration(),
-              labelColor: Colors.black,
+              indicatorPadding: EdgeInsets.zero,
               isScrollable: true,
-              indicatorColor: Colors.black,
+              onTap: (index) {
+                color = ConstantColor.colorBackgroundSecondary;
+              },
               tabs: [
-                Tab(
-                  child: TitleContainer(
-                    title: localization.title_all,
-                    color: ConstantColor.colorBackgroundSecondary,
-                    colorText: ConstantColor.colorNeutral1,
-                  ),
+                TitleContainer(
+                  title: listTitle[0],
+                  color: color,
+                  colorText: ConstantColor.colorNeutral1,
                 ),
-                Tab(
-                  child: TitleContainer(
-                    title: localization.title_searching,
-                    color: ConstantColor.colorNeutral4,
-                    colorText: ConstantColor.colorNeutral1,
-                  ),
+                TitleContainer(
+                  title: listTitle[1],
+                  color: color,
+                  colorText: ConstantColor.colorNeutral1,
                 ),
-                Tab(
-                  child: TitleContainer(
-                    title: localization.title_active,
-                    color: ConstantColor.colorNeutral4,
-                    colorText: ConstantColor.colorNeutral1,
-                  ),
+                TitleContainer(
+                  title: listTitle[2],
+                  color: color,
+                  colorText: ConstantColor.colorNeutral1,
                 ),
-                Tab(
-                  child: TitleContainer(
-                    title: localization.title_complete,
-                    color: ConstantColor.colorNeutral4,
-                    colorText: ConstantColor.colorNeutral1,
-                  ),
+                TitleContainer(
+                  title: listTitle[3],
+                  color: color,
+                  colorText: ConstantColor.colorNeutral1,
                 ),
-                Tab(
-                  child: TitleContainer(
-                    title: localization.title_cancelled,
-                    color: ConstantColor.colorNeutral4,
-                    colorText: ConstantColor.colorNeutral1,
-                  ),
+                TitleContainer(
+                  title: listTitle[4],
+                  color: color,
+                  colorText: ConstantColor.colorNeutral1,
                 ),
               ],
             ),

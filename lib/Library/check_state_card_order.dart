@@ -10,7 +10,12 @@ class CheckStateCardOrder {
     String destination,
   ) {
     if (state == "Cancelled") {
-      return CardOrderCancelled(id: id, state: state);
+      return CardOrderCancelled(
+        id: id,
+        state: state,
+        departure: departure,
+        destination: destination,
+      );
     } else {
       return CardOrder(
         id: id,

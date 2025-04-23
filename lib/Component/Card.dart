@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test1/component/address.dart';
-import 'package:test1/component/button/button_complete.dart';
-import 'package:test1/component/button/button_searching.dart';
+import 'package:test1/component/button_complete.dart';
+import 'package:test1/component/button_searching.dart';
+import 'package:test1/component/section_appointment_time.dart';
 import 'package:test1/component/title_container.dart';
 import 'package:test1/l10n/app_localizations.dart';
 import 'package:test1/library/check_state.dart';
@@ -63,7 +64,6 @@ class _CardOrderState extends State<CardOrder> {
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context);
     return SizedBox(
-      height: 320,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         elevation: 0,
@@ -128,69 +128,13 @@ class _CardOrderState extends State<CardOrder> {
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Expanded(
-                            flex: 2,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  localization.date_order,
-                                  style: TextStyle(
-                                    fontFamily: "Roboto",
-                                    color: ConstantColor.colorIconPaymentMethod,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Text(
-                                  "30/12/2025, 12:00 p.m",
-                                  style: TextStyle(
-                                    fontFamily: "Roboto",
-                                    color: ConstantColor.colorNeutral1,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            flex: 0,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  localization.vehicle,
-                                  style: TextStyle(
-                                    fontFamily: "Roboto",
-                                    color: ConstantColor.colorIconPaymentMethod,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Text(
-                                  localization.type_vehicle,
-                                  style: TextStyle(
-                                    fontFamily: "Roboto",
-                                    color: Color(0xFF313F46),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                    SectionAppointmentTime(
+                      appointmentTime: "30/12/2025 12:00 PM",
+                      typeVehicle: localization.type_vehicle,
                     ),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 3.0),
                     Address(departure: departure, destination: destination),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 10.0),
                     checkStateButton(widget.state),
                   ],
                 ),
