@@ -18,7 +18,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get title_active => '활동적인';
 
   @override
-  String get title_complete => '완전한';
+  String get title_completed => '완전한';
 
   @override
   String get title_cancelled => '취소';

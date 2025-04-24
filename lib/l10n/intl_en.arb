@@ -13,8 +13,8 @@
   "@title_active": {
     "description": "Title of appBar"
   },
-  "title_complete": "Completed",
-  "@title_complete": {
+  "title_completed": "Completed",
+  "@title_completed": {
     "description": "Title of appBar"
   },
   "title_cancelled": "Cancelled",

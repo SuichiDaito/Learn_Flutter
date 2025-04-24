@@ -60,10 +60,12 @@ class Address extends StatelessWidget {
                 'assets/image/point.svg',
                 width: 25,
                 height: 25,
-                colorFilter:
-                    ConstantColor.colorIconPaymentMethod as ColorFilter,
+                colorFilter: ColorFilter.mode(
+                  ConstantColor.colorIconDestination,
+                  BlendMode.srcIn,
+                ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 15),
               Expanded(
                 child: Text(
                   destination,

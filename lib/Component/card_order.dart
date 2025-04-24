@@ -111,7 +111,10 @@ class _CardOrderState extends State<CardOrder> {
                           'assets/image/credit-card.svg',
                           width: 20,
                           height: 20,
-                          colorFilter:  ConstantColor.colorIconPaymentMethod as ColorFilter ,
+                          colorFilter: ColorFilter.mode(
+                            ConstantColor.colorIconPaymentMethod,
+                            BlendMode.srcIn,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10.0),

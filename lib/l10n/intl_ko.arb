@@ -13,8 +13,8 @@
   "@title_active": {
     "description": "Title of appBar"
   },
-  "title_complete": "완전한",
-  "@title_complete": {
+  "title_completed": "완전한",
+  "@title_completed": {
     "description": "Title of appBar"
   },
   "title_cancelled": "취소",

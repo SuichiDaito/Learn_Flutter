@@ -5,7 +5,7 @@ import 'package:test1/bloc/bloc_data.dart';
 import 'package:test1/bloc/bloc_event.dart';
 import 'package:test1/bloc/bloc_implement.dart';
 import 'package:test1/l10n/app_localizations.dart';
-import 'package:test1/tabbar/tab_view_controller.dart';
+import 'package:test1/view/order_list_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: TabViewController(),
+      home: OrderListScreen(),
     );
   }
 }

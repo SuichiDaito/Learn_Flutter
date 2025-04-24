@@ -95,109 +95,109 @@ abstract class AppLocalizations {
     Locale('ko')
   ];
 
-  /// No description provided for @title_all.
+  /// Title of appBar
   ///
   /// In en, this message translates to:
   /// **'All'**
   String get title_all;
 
-  /// No description provided for @title_searching.
+  /// Title of appBar
   ///
   /// In en, this message translates to:
   /// **'Searching'**
   String get title_searching;
 
-  /// No description provided for @title_active.
+  /// Title of appBar
   ///
   /// In en, this message translates to:
   /// **'Active'**
   String get title_active;
 
-  /// No description provided for @title_complete.
+  /// Title of appBar
   ///
   /// In en, this message translates to:
   /// **'Completed'**
-  String get title_complete;
+  String get title_completed;
 
-  /// No description provided for @title_cancelled.
+  /// Title of appBar
   ///
   /// In en, this message translates to:
   /// **'Cancelled'**
   String get title_cancelled;
 
-  /// No description provided for @state_korean_searching.
+  /// Display state default of order
   ///
   /// In en, this message translates to:
   /// **'이사'**
   String get state_korean_searching;
 
-  /// No description provided for @state_korean_active.
+  /// Display state default of order
   ///
   /// In en, this message translates to:
   /// **'이사'**
   String get state_korean_active;
 
-  /// No description provided for @state_korean_completed.
+  /// Display state default of order
   ///
   /// In en, this message translates to:
   /// **'퀵'**
   String get state_korean_completed;
 
-  /// No description provided for @state_korean_cancelled.
+  /// Display state default of order
   ///
   /// In en, this message translates to:
   /// **'배차중'**
   String get state_korean_cancelled;
 
-  /// No description provided for @date_order.
+  /// Date user create order
   ///
   /// In en, this message translates to:
   /// **'Date order'**
   String get date_order;
 
-  /// No description provided for @vehicle.
+  /// Title of vehicle run for order
   ///
   /// In en, this message translates to:
   /// **'Vehicle'**
   String get vehicle;
 
-  /// No description provided for @type_vehicle.
+  /// Title type of vehicle
   ///
   /// In en, this message translates to:
   /// **'1 ton truck'**
   String get type_vehicle;
 
-  /// No description provided for @appointment_time_start.
+  /// Address of departure
   ///
   /// In en, this message translates to:
   /// **'Road A, Street B, Province C, City D'**
   String get appointment_time_start;
 
-  /// No description provided for @appointment_time_end.
+  /// Address of destination
   ///
   /// In en, this message translates to:
   /// **'Road A, Street B, Province C, City D'**
   String get appointment_time_end;
 
-  /// No description provided for @button_state_searching.
+  /// Title of searching button
   ///
   /// In en, this message translates to:
   /// **'Tip driver'**
   String get button_state_searching;
 
-  /// No description provided for @button_state_active.
+  /// Title of active button
   ///
   /// In en, this message translates to:
   /// **'Driver info'**
   String get button_state_active;
 
-  /// No description provided for @button_state_complete_reorder.
+  /// Title of completed button
   ///
   /// In en, this message translates to:
   /// **'Reorder'**
   String get button_state_complete_reorder;
 
-  /// No description provided for @button_state_complete_receipt.
+  /// Title of completed button
   ///
   /// In en, this message translates to:
   /// **'Receipt'**

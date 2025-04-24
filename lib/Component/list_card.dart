@@ -26,30 +26,27 @@ class _ListCardState extends State<ListCard> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: InkWell(
-        onTap: () {},
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder:
-                    (context) => Detail(
-                      id: widget.id,
-                      state: widget.state,
-                      departure: widget.departure,
-                      destination: widget.destination,
-                    ),
-              ),
-            );
-          },
-          child:
-              CheckStateCardOrder.checkStateCardOrder(
-                    widget.state,
-                    widget.id,
-                    widget.departure,
-                    widget.destination,
-                  )
-                  as Widget,
-        ),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder:
+                  (context) => Detail(
+                    id: widget.id,
+                    state: widget.state,
+                    departure: widget.departure,
+                    destination: widget.destination,
+                  ),
+            ),
+          );
+        },
+        child:
+            CheckStateCardOrder.checkStateCardOrder(
+                  widget.state,
+                  widget.id,
+                  widget.departure,
+                  widget.destination,
+                )
+                as Widget,
       ),
     );
   }
