@@ -4,27 +4,27 @@ import 'package:test1/bloc/bloc_data.dart';
 import 'package:test1/bloc/bloc_event.dart';
 import 'package:test1/bloc/bloc_implement.dart';
 
-class CallApiGogox extends StatelessWidget {
-  const CallApiGogox({super.key});
+class CallApiCompany extends StatelessWidget {
+  const CallApiCompany({super.key});
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ImplementBloc>(
-      create: (_) => ImplementBloc()..add(FeatchDataGogox()),
+      create: (_) => ImplementBloc()..add(FetchDataCompany()),
       child: Scaffold(
-        appBar: AppBar(title: Text("Infomation get APi from Gogox ")),
+        appBar: AppBar(title: Text("Information get APi from Company  ")),
         body: BlocBuilder<ImplementBloc, Data>(
           builder: (context, state) {
             if (state is LoadingData) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is LoadedDataGogox) {
+            } else if (state is LoadedDataCompany) {
               ///
               final data = state.info.body;
-              print(state.info);
+              debugPrint(state.info.toString());
               return RefreshIndicator(
                 onRefresh: () async {
-                  context.read<ImplementBloc>()..add(RefreshDataGogox());
+                  context.read<ImplementBloc>().add(RefreshDataCompany());
                 },
-                child: Column(children: [Text("Info get from API: ${data}")]),
+                child: Column(children: [Text("Info get from API: $data")]),
               );
             } else if (state is ErrorData) {
               return Center(child: Text("Error: ${state.message}"));

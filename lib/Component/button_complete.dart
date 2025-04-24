@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test1/l10n/app_localizations.dart';
-import 'package:test1/library/constant.dart';
+import 'package:test1/library/constant_lib.dart';
 
 class ButtonComplete extends StatelessWidget {
   const ButtonComplete({

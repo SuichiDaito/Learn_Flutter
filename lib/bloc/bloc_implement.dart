@@ -1,20 +1,18 @@
-import 'package:chopper/src/response.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test1/bloc/bloc_data.dart';
 import 'package:test1/bloc/bloc_event.dart';
 import 'package:test1/controller/call_chopper_api.dart';
-import 'package:test1/controller/call_chopper_api_gogox.dart';
-import 'package:test1/model/comment_model.dart';
+import 'package:test1/controller/call_chopper_api_company.dart';
 
 class ImplementBloc extends Bloc<BlocEvent, Data> {
   ImplementBloc() : super(LoadingData()) {
-    on<FeatchData>(_onFetchData);
+    on<FetchData>(_onFetchData);
     on<RefreshData>(_refreshData);
-    on<FeatchDataGogox>(_onFetchDataGogox);
-    on<RefreshDataGogox>(_onRefreshDataGogox);
+    on<FetchDataCompany>(_onFetchDataCompany);
+    on<RefreshDataCompany>(_onRefreshDataCompany);
   }
 
-  Future<void> _onFetchData(FeatchData event, Emitter<Data> emit) async {
+  Future<void> _onFetchData(FetchData event, Emitter<Data> emit) async {
     try {
       emit(LoadingData());
       // comments: Response<List<Comment>>
@@ -35,25 +33,25 @@ class ImplementBloc extends Bloc<BlocEvent, Data> {
     }
   }
 
-  Future<void> _onFetchDataGogox(
-    FeatchDataGogox event,
+  Future<void> _onFetchDataCompany(
+    FetchDataCompany event,
     Emitter<Data> emit,
   ) async {
     try {
-      final info = await CallChopperApiGogox.getInfoLogin.getInfo();
-      emit(LoadedDataGogox(info));
+      final info = await CallChopperApiCompany.getInfoLogin.getInfo();
+      emit(LoadedDataCompany(info));
     } catch (e) {
       emit(ErrorData(e.toString()));
     }
   }
 
-  Future<void> _onRefreshDataGogox(
-    RefreshDataGogox event,
+  Future<void> _onRefreshDataCompany(
+    RefreshDataCompany event,
     Emitter<Data> emit,
   ) async {
     try {
-      final info = await CallChopperApiGogox.getInfoLogin.getInfo();
-      emit(LoadedDataGogox(info));
+      final info = await CallChopperApiCompany.getInfoLogin.getInfo();
+      emit(LoadedDataCompany(info));
     } catch (e) {
       emit(ErrorData(e.toString()));
     }

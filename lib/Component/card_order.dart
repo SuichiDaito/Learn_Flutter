@@ -6,9 +6,9 @@ import 'package:test1/component/section_appointment_time.dart';
 import 'package:test1/component/title_container.dart';
 import 'package:test1/l10n/app_localizations.dart';
 import 'package:test1/library/check_state.dart';
-import 'package:test1/gen/assets.gen.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:test1/library/constant.dart';
+import 'package:test1/library/constant_lib.dart';
 import 'package:test1/library/constant_format_currency.dart';
 
 class CardOrder extends StatefulWidget {
@@ -111,7 +111,7 @@ class _CardOrderState extends State<CardOrder> {
                           'assets/image/credit-card.svg',
                           width: 20,
                           height: 20,
-                          color: ConstantColor.colorIconPaymentMethod,
+                          colorFilter:  ConstantColor.colorIconPaymentMethod as ColorFilter ,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10.0),

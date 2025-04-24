@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart';
-import 'package:test1/api/http.dart';
 import 'package:test1/bloc/bloc_data.dart';
 import 'package:test1/bloc/bloc_event.dart';
 import 'package:test1/bloc/bloc_implement.dart';
-import 'package:test1/component/card.dart';
 import 'package:test1/component/list_card.dart';
 import 'package:test1/component/title_container.dart';
-import 'package:test1/controller/call_chopper_api.dart';
 import 'package:test1/l10n/app_localizations.dart';
-import 'package:test1/library/constant.dart';
-import 'package:test1/model/comment_model.dart';
+import 'package:test1/library/constant_lib.dart';
 
 class TabViewController extends StatefulWidget {
   const TabViewController({super.key});
@@ -35,19 +30,8 @@ class _TabViewControllerState extends State<TabViewController>
     ];
     Color color = ConstantColor.colorNeutral4;
 
-    @override
-    void initState() {
-      // TODO: implement initState
-      super.initState();
-    }
-
-    @override
-    void dispose() {
-      super.dispose();
-    }
-
     return BlocProvider<ImplementBloc>(
-      create: (_) => ImplementBloc()..add(FeatchData()),
+      create: (_) => ImplementBloc()..add(FetchData()),
       child: DefaultTabController(
         length: 5,
         child: Scaffold(
@@ -124,52 +108,52 @@ class _TabViewControllerState extends State<TabViewController>
                             return ListCard(
                               id: "#${data[index].id}",
                               state: "Searching",
-                              departure: "${data[index].name}",
-                              destination: "${data[index].name}",
+                              departure: data[index].name,
+                              destination: data[index].name,
                             );
                           },
                         ),
                         ListView.builder(
-                          itemCount: data!.length,
+                          itemCount: data.length,
                           itemBuilder: (context, index) {
                             return ListCard(
                               id: "#${data[index].id}",
                               state: "Searching",
-                              departure: "${data[index].email}",
-                              destination: "${data[index].name}",
+                              departure: data[index].email,
+                              destination: data[index].name,
                             );
                           },
                         ),
                         ListView.builder(
-                          itemCount: data!.length,
+                          itemCount: data.length,
                           itemBuilder: (context, index) {
                             return ListCard(
                               id: "#${data[index].id}",
                               state: "Active",
-                              departure: "${data[index].email}",
-                              destination: "${data[index].name}",
+                              departure: data[index].email,
+                              destination: data[index].name,
                             );
                           },
                         ),
                         ListView.builder(
-                          itemCount: data!.length,
+                          itemCount: data.length,
                           itemBuilder: (context, index) {
                             return ListCard(
                               id: "#${data[index].id}",
                               state: "Completed",
-                              departure: "${data[index].email}",
-                              destination: "${data[index].name}",
+                              departure: data[index].email,
+                              destination: data[index].name,
                             );
                           },
                         ),
                         ListView.builder(
-                          itemCount: data!.length,
+                          itemCount: data.length,
                           itemBuilder: (context, index) {
                             return ListCard(
                               id: "# ${data[index].id}",
                               state: "Cancelled",
-                              departure: "${data[index].email}",
-                              destination: "${data[index].name}",
+                              departure: data[index].email,
+                              destination: data[index].name,
                             );
                           },
                         ),

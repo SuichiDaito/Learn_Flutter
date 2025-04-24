@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:test1/Component/detail.dart';
-import 'package:test1/component/button_complete.dart';
-import 'package:test1/component/button_searching.dart';
-import 'package:test1/component/card.dart';
-import 'package:test1/component/card_order_cancelled.dart';
 import 'package:test1/library/check_state_card_order.dart';
 
 class ListCard extends StatefulWidget {

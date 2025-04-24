@@ -1,20 +1,76 @@
 {
+  "@@locale": "ko",
+
   "title_all": "모두",
+  "@title_all": {
+    "description": "Title of appBar"
+  },
   "title_searching": "수색",
+  "@title_searching": {
+    "description": "Title of appBar"
+  },
   "title_active": "활동적인",
+  "@title_active": {
+    "description": "Title of appBar"
+  },
   "title_complete": "완전한",
+  "@title_complete": {
+    "description": "Title of appBar"
+  },
   "title_cancelled": "취소",
+  "@title_cancelled": {
+    "description": "Title of appBar"
+  },
   "state_korean_searching": "이사",
+  "@state_korean_searching": {
+    "description": "Display state default of order"
+  },
   "state_korean_active": "이사",
+  "@state_korean_active": {
+    "description": "Display state default of order"
+  },
   "state_korean_completed": "퀵",
+  "@state_korean_completed": {
+    "description": "Display state default of order"
+  },
   "state_korean_cancelled": "배차중",
+  "@state_korean_cancelled": {
+    "description": "Display state default of order"
+  },
   "date_order": "날짜 순서",
+  "@date_order": {
+    "description": "Date user create order"
+  },
   "vehicle": "차량",
+  "@vehicle": {
+    "description": "Title of vehicle run for order"
+  },
   "type_vehicle": "1 톤 트럭",
+  "@type_vehicle": {
+    "description": "Title type of vehicle"
+  },
   "appointment_time_start": "도로 A, 거리 B, 주 C, 도시 D",
+  "@appointment_time_start": {
+    "description": "Address of departure"
+  },
   "appointment_time_end": "도로 A, 거리 B, 주 C, 도시 D",
+  "@appointment_time_end": {
+    "description": "Address of destination"
+  },
   "button_state_searching": "팁 드라이버",
+  "@button_state_searching": {
+    "description": "Title of searching button"
+  },
   "button_state_active": "강 정보",
+  "@button_state_active": {
+    "description": "Title of active button"
+  },
   "button_state_complete_reorder": "재정렬",
-  "button_state_complete_receipt": "영수증"
+  "@button_state_complete_reorder": {
+    "description": "Title of completed button"
+  },
+  "button_state_complete_receipt": "영수증", 
+  "@button_state_complete_receipt": {
+    "description": "Title of completed button"
+  }
 }

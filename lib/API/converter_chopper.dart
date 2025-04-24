@@ -1,5 +1,5 @@
-import 'dart:async';
 import 'package:chopper/chopper.dart';
+import 'package:flutter/rendering.dart';
 import 'package:test1/model/comment_model.dart';
 import 'dart:convert';
 
@@ -29,13 +29,13 @@ class ModelConverter implements Converter {
   Response<BodyType> decodeJson<BodyType, InnerType>(Response response) {
     var contentType = response.headers[contentTypeKey];
     var body = response.body;
-    print("Body decodeJson: $body");
+    debugPrint("Body decodeJson: $body");
     if (contentType != null && contentType.contains(jsonHeaders)) {
       body = utf8.decode(response.bodyBytes);
     }
     try {
       List<dynamic> mapData = json.decode(body);
-      if (mapData != null) {
+      if (mapData.isNotEmpty) {
         List<Comment> comment =
             mapData.map((comment) => Comment.fromJson(comment)).toList();
         return response.copyWith<BodyType>(body: comment as BodyType);
@@ -47,10 +47,10 @@ class ModelConverter implements Converter {
     return body;
   }
 
-  Response<BodyType> decodeJsonGogox<BodyType, InnerType>(Response response) {
+  Response<BodyType> decodeJsonGogo<BodyType, InnerType>(Response response) {
     var contentType = response.headers[contentTypeKey];
     var body = response.body;
-    print("Body decodeJson: $body");
+    debugPrint("Json: $body");
     if (contentType != null && contentType.contains(jsonHeaders)) {
       body = utf8.decode(response.bodyBytes);
     }
@@ -72,10 +72,9 @@ class ModelConverter implements Converter {
     return decodeJson<BodyType, InnerType>(response);
   }
 
-  @override
-  Response<BodyType> convertResponseGogox<BodyType, InnerType>(
+  Response<BodyType> convertResponseCompany<BodyType, InnerType>(
     Response response,
   ) {
-    return decodeJsonGogox<BodyType, InnerType>(response);
+    return decodeJsonGogo<BodyType, InnerType>(response);
   }
 }

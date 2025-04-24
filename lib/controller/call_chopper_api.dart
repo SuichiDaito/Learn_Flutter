@@ -1,7 +1,6 @@
 import 'package:chopper/chopper.dart';
 import 'package:test1/API/converter_chopper.dart';
 import 'package:test1/api/chopper_service.dart';
-import 'package:test1/model/comment_model.dart';
 
 class CallChopperApi {
   static final chopper = ChopperClient(

@@ -1,6 +1,6 @@
-import 'package:test1/component/card.dart';
+import 'package:test1/component/card_order.dart';
 import 'package:test1/component/card_order_cancelled.dart';
-import 'package:test1/l10n/app_localizations.dart';
+
 
 class CheckStateCardOrder {
   static Object checkStateCardOrder(

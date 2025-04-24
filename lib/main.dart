@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:test1/Component/card.dart';
 import 'package:test1/bloc/bloc_data.dart';
 import 'package:test1/bloc/bloc_event.dart';
 import 'package:test1/bloc/bloc_implement.dart';
-import 'package:test1/component/address.dart';
-import 'package:test1/component/button_complete.dart';
-import 'package:test1/component/call_api_gogox.dart';
-import 'package:test1/component/card_order_cancelled.dart';
-import 'package:test1/component/detail.dart';
-import 'package:test1/component/list_card.dart';
 import 'package:test1/l10n/app_localizations.dart';
 import 'package:test1/tabbar/tab_view_controller.dart';
 
@@ -56,11 +49,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ImplementBloc>(
-      create: (_) => ImplementBloc()..add(FeatchData()),
+      create: (_) => ImplementBloc()..add(FetchData()),
       child: Scaffold(
         appBar: AppBar(
           title: Text("Fetch data when use bloc "),
-          bottom: TabBar(tabs: [Tab(text: "Demooo")]),
+          bottom: TabBar(tabs: [Tab(text: "D")]),
         ),
 
         body: BlocBuilder<ImplementBloc, Data>(

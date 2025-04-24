@@ -15,7 +15,7 @@ class ErrorData extends Data {
   ErrorData(this.message);
 }
 
-class LoadedDataGogox extends Data {
+class LoadedDataCompany extends Data {
   final Response info;
-  LoadedDataGogox(this.info);
+  LoadedDataCompany(this.info);
 }

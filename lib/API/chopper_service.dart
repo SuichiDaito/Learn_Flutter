@@ -12,7 +12,7 @@ abstract class JsonService extends ChopperService {
 }
 
 @ChopperApi(baseUrl: '/account/whoami')
-abstract class JsonGogoxService extends ChopperService {
+abstract class JsonServiceCompany extends ChopperService {
   @GET(
     path: '',
     headers: {
@@ -24,5 +24,5 @@ abstract class JsonGogoxService extends ChopperService {
   )
   Future<Response> getInfo();
 
-  static JsonGogoxService create() => _$JsonGogoxService();
+  static JsonServiceCompany create() => _$JsonServiceCompany();
 }

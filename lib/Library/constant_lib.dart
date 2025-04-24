@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class ConstantColor {
@@ -7,7 +8,7 @@ class ConstantColor {
   /// background Searching
   static Color colorBackgroundActive = Color(0xFFC6EDD8);
 
-  /// backgound Complete
+  /// background Complete
   static Color colorBackgroundComplete = Color(0xFFE0EAF8);
 
   /// text Active

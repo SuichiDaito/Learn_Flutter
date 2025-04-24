@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test1/gen/assets.gen.dart';
+import 'package:test1/library/constant_lib.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:test1/library/constant.dart';
 
 class Address extends StatelessWidget {
   const Address({
@@ -25,7 +25,7 @@ class Address extends StatelessWidget {
             child: Row(
               children: [
                 SvgPicture.asset(
-                  'assets/image/departureicon.svg',
+                  'assets/image/departure_icon.svg',
                   width: 24,
                   height: 24,
                 ),
@@ -60,7 +60,8 @@ class Address extends StatelessWidget {
                 'assets/image/point.svg',
                 width: 25,
                 height: 25,
-                color: ConstantColor.colorIconDestination,
+                colorFilter:
+                    ConstantColor.colorIconPaymentMethod as ColorFilter,
               ),
               const SizedBox(width: 12),
               Expanded(

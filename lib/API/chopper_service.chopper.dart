@@ -27,15 +27,15 @@ final class _$JsonService extends JsonService {
 }
 
 // coverage:ignore-file
-// ignore_for_file: type=lint
-final class _$JsonGogoxService extends JsonGogoxService {
-  _$JsonGogoxService([ChopperClient? client]) {
+
+final class _$JsonServiceCompany extends JsonServiceCompany {
+  _$JsonServiceCompany([ChopperClient? client]) {
     if (client == null) return;
     this.client = client;
   }
 
   @override
-  final Type definitionType = JsonGogoxService;
+  final Type definitionType = JsonServiceCompany;
 
   @override
   Future<Response<dynamic>> getInfo() {
