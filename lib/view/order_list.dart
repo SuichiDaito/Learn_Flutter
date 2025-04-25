@@ -13,58 +13,91 @@ class OrderList extends StatefulWidget {
 }
 
 class _OrderListState extends State<OrderList> {
+  final _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    if (_isBottom) {
+      ImplementBloc().add(LoadingMoreData());
+    }
+  }
+
+  bool get _isBottom {
+    // if (!_scrollController.hasClients) return false;
+    final maxScroll = _scrollController.position.maxScrollExtent;
+    final currentScroll = _scrollController.position.pixels;
+    return currentScroll >= (maxScroll - 200.0);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _scrollController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Column(
-        children: [
-          BlocProvider(
-            create: (_) => ImplementBloc()..add(FetchData()),
-            child: BlocBuilder<ImplementBloc, Data>(
-              builder: (context, state) {
-                if (state is LoadingData) {
-                  return Center(child: CircularProgressIndicator());
-                } else if (state is LoadedData) {
-                  final data = state.comments.body;
-                  return RefreshIndicator(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 12,
-                        horizontal: 20.0,
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      child: BlocProvider<ImplementBloc>(
+        create: (_) => ImplementBloc()..add(FetchData()),
+        child: BlocBuilder<ImplementBloc, Data>(
+          builder: (context, state) {
+            if (state is LoadingData && state is! LoadedData) {
+              debugPrint("state: $state");
+              return Center(child: CircularProgressIndicator());
+            } else if (state is LoadedData) {
+              final data = state.comments.body;
+              if (state.comments.body!.isEmpty) {
+                return Center(child: Text("No data"));
+              }
+              return RefreshIndicator(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12,
+                    horizontal: 20.0,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height,
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          controller: _scrollController,
+                          itemCount:
+                              data!.length + (state is LoadingMoreData ? 1 : 0),
+                          itemBuilder: (context, index) {
+                            if (index == data.length) {
+                              return Center(child: CircularProgressIndicator());
+                            }
+                            return ListCard(
+                              id: "#${data[index].id}",
+                              state: widget.state,
+                              departure: data[index].name,
+                              destination: data[index].name,
+                            );
+                          },
+                        ),
                       ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height,
-                            child: ListView.builder(
-                              itemCount: data!.length,
-                              itemBuilder: (context, index) {
-                                return ListCard(
-                                  id: "#${data[index].id}",
-                                  state: widget.state,
-                                  departure: data[index].name,
-                                  destination: data[index].name,
-                                );
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    onRefresh: () async {
-                      context.read<ImplementBloc>().add(RefreshData());
-                    },
-                  );
-                } else if (state is ErrorData) {
-                  return Center(child: Text("Error: ${state.message}"));
-                }
-                return Text("Error");
-              },
-            ),
-          ),
-        ],
+                    ],
+                  ),
+                ),
+                onRefresh: () async {
+                  context.read<ImplementBloc>().add(RefreshData());
+                },
+              );
+            } else if (state is ErrorData) {
+              return Center(child: Text("Error: ${state.message}"));
+            }
+            return Text("Error");
+          },
+        ),
       ),
     );
   }

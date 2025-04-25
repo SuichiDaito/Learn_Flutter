@@ -19,14 +19,21 @@ final class _$JsonService extends JsonService {
   final Type definitionType = JsonService;
 
   @override
-  Future<Response<List<Comment>>> getPosts() {
+  Future<Response<List<Comment>>> getPosts(int start, int limit) {
     final Uri $url = Uri.parse('/comments');
-    final Request $request = Request('GET', $url, client.baseUrl);
+    final Map<String, dynamic> $params = <String, dynamic>{
+      '_start': start,
+      '_limit': limit,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
     return client.send<List<Comment>, Comment>($request);
   }
 }
-
-// coverage:ignore-file
 
 final class _$JsonServiceCompany extends JsonServiceCompany {
   _$JsonServiceCompany([ChopperClient? client]) {

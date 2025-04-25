@@ -7,7 +7,8 @@ class LoadingData extends Data {}
 
 class LoadedData extends Data {
   final Response<List<Comment>> comments;
-  LoadedData(this.comments);
+  final bool hasReachedMax;
+  LoadedData(this.comments, this.hasReachedMax);
 }
 
 class ErrorData extends Data {
@@ -18,4 +19,10 @@ class ErrorData extends Data {
 class LoadedDataCompany extends Data {
   final Response info;
   LoadedDataCompany(this.info);
+}
+
+class MoreData extends Data {
+  final Response<List<Comment>> comments;
+  final bool hasReachedMax;
+  MoreData(this.comments, this.hasReachedMax);
 }
