@@ -12,7 +12,6 @@ class ModelConverter implements Converter {
       request,
       contentTypeKey,
       jsonHeaders,
-
       override: false,
     );
     return encodeJson(req);
