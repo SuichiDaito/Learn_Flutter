@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide State;
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test1/bloc/bloc_data.dart';
+import 'package:test1/bloc/bloc_state.dart';
 import 'package:test1/bloc/bloc_event.dart';
-import 'package:test1/bloc/bloc_implement.dart';
+import 'package:test1/bloc/bloc_bloc.dart';
 
 class CallApiCompany extends StatelessWidget {
   const CallApiCompany({super.key});
@@ -12,11 +12,11 @@ class CallApiCompany extends StatelessWidget {
       create: (_) => ImplementBloc()..add(FetchDataCompany()),
       child: Scaffold(
         appBar: AppBar(title: Text("Information get APi from Company  ")),
-        body: BlocBuilder<ImplementBloc, Data>(
+        body: BlocBuilder<ImplementBloc, OrderState>(
           builder: (context, state) {
-            if (state is LoadingData) {
+            if (state is LoadingState) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is LoadedDataCompany) {
+            } else if (state is LoadedStateCompany) {
               ///
               final data = state.info.body;
               debugPrint(state.info.toString());
@@ -26,7 +26,7 @@ class CallApiCompany extends StatelessWidget {
                 },
                 child: Column(children: [Text("Info get from API: $data")]),
               );
-            } else if (state is ErrorData) {
+            } else if (state is ErrorState) {
               return Center(child: Text("Error: ${state.message}"));
             }
             return Text("Error");
