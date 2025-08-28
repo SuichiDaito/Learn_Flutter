@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test1/bloc/bloc_state.dart' hide State;
 import 'package:test1/bloc/bloc_event.dart';
 import 'package:test1/bloc/bloc_bloc.dart';
-import 'package:test1/component/list_card.dart';
+import 'package:test1/presentation/sections/list_card.dart';
 
 class OrderList extends StatefulWidget {
   const OrderList({super.key, required this.state});

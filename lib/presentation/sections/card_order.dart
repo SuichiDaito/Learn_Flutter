@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:test1/component/address.dart';
-import 'package:test1/component/button_complete.dart';
-import 'package:test1/component/button_searching.dart';
-import 'package:test1/component/section_appointment_time.dart';
-import 'package:test1/component/title_container.dart';
+import 'package:test1/presentation/sections/address.dart';
+import 'package:test1/presentation/sections/button_complete.dart';
+import 'package:test1/presentation/sections/button_searching.dart';
+import 'package:test1/presentation/sections/section_appointment_time.dart';
+import 'package:test1/presentation/sections/title_container.dart';
 import 'package:test1/l10n/app_localizations.dart';
 import 'package:test1/library/check_state.dart';
 // ignore: depend_on_referenced_packages

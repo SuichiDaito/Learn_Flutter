@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test1/library/constant_lib.dart';
-import 'package:test1/component/address.dart';
-import 'package:test1/component/title_container.dart';
+import 'package:test1/presentation/sections/address.dart';
+import 'package:test1/presentation/sections/title_container.dart';
 import 'package:test1/library/check_state.dart';
 
 class Detail extends StatelessWidget {
