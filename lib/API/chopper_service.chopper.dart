@@ -35,6 +35,8 @@ final class _$JsonService extends JsonService {
   }
 }
 
+// coverage:ignore-file
+// ignore_for_file: type=lint
 final class _$JsonServiceCompany extends JsonServiceCompany {
   _$JsonServiceCompany([ChopperClient? client]) {
     if (client == null) return;

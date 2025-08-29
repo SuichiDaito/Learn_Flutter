@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test1/Component/detail.dart';
+import 'package:test1/presentation/sections/detail.dart';
 import 'package:test1/library/check_state_card_order.dart';
 
 class ListCard extends StatefulWidget {
